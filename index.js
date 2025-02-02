@@ -1,35 +1,27 @@
-document.getElementById("registerForm").addEventListener("submit", function (event) {
+document.getElementById("registerForm").addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const fullName = document.getElementById("fullName").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const role = document.getElementById("role").value;
-  const timeIn = document.getElementById("timeIn").value;
-  const timeOut = document.getElementById("timeOut").value;
-
-  if (!fullName || !email || !phone || !role || !timeIn || !timeOut) {
-    alert("Please fill in all fields.");
-    return;
-  }
-
-  const employeeData = {
-    fullName,
-    email,
-    phone,
-    role,
-    timeIn,
-    timeOut,
-    attendance: [{ date: new Date().toLocaleDateString(), timeIn, timeOut }]
+  const formData = {
+    fullName: document.getElementById("fullName").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    role: document.getElementById("role").value,
+    timeIn: document.getElementById("timeIn").value,
+    timeOut: document.getElementById("timeOut").value,
   };
 
-  // Fetch existing data from localStorage
-  let employees = JSON.parse(localStorage.getItem("employees")) || [];
-  employees.push(employeeData);
-
-  // Save updated data back to localStorage
-  localStorage.setItem("employees", JSON.stringify(employees));
-
-  alert("Register submitted successfully!");
-  document.getElementById("registerForm").reset();
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbwuFbIV_axObGIn0OkpdZ4NdW1ksiE8YqVSw4dPmwg0Asbx4ReLoaObbbYGnnsGSnQ6/exec", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    alert("Data submitted successfully!");
+  } catch (error) {
+    console.error("Error submitting data:", error);
+    alert("Failed to submit data.");
+  }
 });
+
