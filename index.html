@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FairPay Employee Register</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <img src="C:\Users\Mondli Mokoka\OneDrive\Desktop\FP_register\fairpay_logo.png" alt="FairPay Logo" class="logo">
+  </header>
+  <main>
+    <h1>Employee Register</h1>
+    <form id="registerForm">
+      <label>Full Name:</label>
+      <input type="text" id="fullName" required>
+      <label>Email:</label>
+      <input type="email" id="email" required>
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" required>
+      <label>Role:</label>
+      <select id="role" required>
+        <option value="TDR">TDR</option>
+        <option value="Agent">Agent</option>
+        <option value="Promoter">Promoter</option>
+      </select>
+      <label>Time In:</label>
+      <input type="datetime-local" id="timeIn" required>
+      <label>Time Out:</label>
+      <input type="datetime-local" id="timeOut" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="message"></div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="C:\Users\Mondli Mokoka\OneDrive\Desktop\FP_register\fairpay_logo.png" alt="FairPay Logo" class="logo">
+  </header>
+  <h1 id="employee-name"></h1>
+  
+  <div class="employee-info">
+    <p><strong>Email:</strong> <span id="employee-email"></span></p>
+    <p><strong>Number:</strong> <span id="employee-number"></span></p>
+    <p><strong>Role:</strong> <span id="employee-role"></span></p>
+    <p><strong>Days Worked:</strong> <span id="days-worked"></span></p>
+  </div>
+
+  <h2>Attendance Records</h2>
+  <table id="attendance-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time In</th>
+        <th>Time Out</th>
+      </tr>
+    </thead>
+    <tbody id="attendance-body"></tbody>
+  </table>
+
+  <button onclick="resetAttendance()">Reset Attendance</button>
+  <button onclick="downloadReport()">Download Report</button>
+  <button onclick="deleteEmployee()">Delete Employee</button>
+
+  <script src="employee.js"></script>
+</body>
+</html>
