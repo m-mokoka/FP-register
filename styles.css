@@ -28,7 +28,7 @@ button:hover {
 .logo {
   width: 150px;
   margin-bottom: 20px;
-  logo-image: url('https://github.com/m-mokoka/FP-register/blob/main/fairpay_logo.png?raw=true');
+  image: url('https://github.com/m-mokoka/FP-register/blob/main/fairpay_logo.png?raw=true');
 }
 
 /* Form Styles for index.html */
