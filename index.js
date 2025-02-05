@@ -9,7 +9,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   const timeOut = document.getElementById('timeOut').value;
 
   // Replace with your Google Apps Script Web App URL
-  const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwuFbIV_axObGIn0OkpdZ4NdW1ksiE8YqVSw4dPmwg0Asbx4ReLoaObbbYGnnsGSnQ6/exec';
+  const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyQoCl5GQjmkaDzelfTDIo-l4DXenHDGLMOxYdqZFdMxTo2EMMY9W-JVpabuszdvz9U/exec';
 
   fetch(googleScriptURL, {
     method: 'POST',
