@@ -11,7 +11,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   // Replace with your Google Apps Script Web App URL
   const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyQoCl5GQjmkaDzelfTDIo-l4DXenHDGLMOxYdqZFdMxTo2EMMY9W-JVpabuszdvz9U/exec';
 
-  fetch(googleScriptURL, {
+  fetch(googleScriptURL = 'https://script.google.com/macros/s/AKfycbyQoCl5GQjmkaDzelfTDIo-l4DXenHDGLMOxYdqZFdMxTo2EMMY9W-JVpabuszdvz9U/exec', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
