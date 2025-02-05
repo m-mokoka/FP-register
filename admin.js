@@ -1,16 +1,31 @@
-async function fetchEmployeeData() {
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwuFbIV_axObGIn0OkpdZ4NdW1ksiE8YqVSw4dPmwg0Asbx4ReLoaObbbYGnnsGSnQ6/exec");
-    const data = await response.json();
+function populateWidgets() {
+  const tdrContainer = document.getElementById("tdr-widgets");
+  const agentContainer = document.getElementById("agent-widgets");
+  const promoterContainer = document.getElementById("promoter-widgets");
 
-    data.slice(1).forEach((row) => {
-      console.log("Employee:", row);
-      // Populate the admin page with employee data
+  const employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+  employees.forEach(employee => {
+    const widget = document.createElement("div");
+    widget.classList.add("employee-widget");
+    widget.textContent = employee.fullName;
+
+    widget.addEventListener("click", () => {
+      window.location.href = `employee.html?name=${encodeURIComponent(employee.fullName)}`;
     });
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
+
+    switch (employee.role) {
+      case "TDR":
+        tdrContainer.appendChild(widget);
+        break;
+      case "Agent":
+        agentContainer.appendChild(widget);
+        break;
+      case "Promoter":
+        promoterContainer.appendChild(widget);
+        break;
+    }
+  });
 }
 
-fetchEmployeeData();
-
+populateWidgets();

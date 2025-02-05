@@ -1,27 +1,36 @@
-document.getElementById("registerForm").addEventListener("submit", async (event) => {
-  event.preventDefault();
+document.getElementById('registerForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent form default submission
 
-  const formData = {
-    fullName: document.getElementById("fullName").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    role: document.getElementById("role").value,
-    timeIn: document.getElementById("timeIn").value,
-    timeOut: document.getElementById("timeOut").value,
-  };
+  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const role = document.getElementById('role').value;
+  const timeIn = document.getElementById('timeIn').value;
+  const timeOut = document.getElementById('timeOut').value;
 
-  try {
-    await fetch("https://script.google.com/macros/s/AKfycbwuFbIV_axObGIn0OkpdZ4NdW1ksiE8YqVSw4dPmwg0Asbx4ReLoaObbbYGnnsGSnQ6/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    alert("Data submitted successfully!");
-  } catch (error) {
-    console.error("Error submitting data:", error);
-    alert("Failed to submit data.");
-  }
+  // Replace with your Google Apps Script Web App URL
+  const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwuFbIV_axObGIn0OkpdZ4NdW1ksiE8YqVSw4dPmwg0Asbx4ReLoaObbbYGnnsGSnQ6/exec';
+
+  fetch(googleScriptURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fullName: fullName,
+      email: email,
+      phone: phone,
+      role: role,
+      timeIn: timeIn,
+      timeOut: timeOut
+    })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert('Register submitted successfully!');
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert('Failed to submit register.');
+  });
 });
 
